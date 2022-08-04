@@ -1,0 +1,24 @@
+{
+  "name": "investing-managment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "luan otavio <luanotaviocostasilva@gmail.com>",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+
+    "test": "jest"
+  },
+  "private": true,
+  "devDependencies": {
+    "@investing-managment/eslint-config": "*",
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}
