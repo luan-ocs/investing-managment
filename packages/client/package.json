@@ -4,29 +4,28 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "lint-staged": {
-    "*.{js,ts,tsx, jsx}": [
-      "eslint --quiet --fix"
-    ],
-    "*.{json,md,html,js,jsx,ts,tsx}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
+    "axios": "^0.27.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.34.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@investing-managment/eslint-config": "*",
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^2.0.1",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "react-router-dom": "^6.3.0",
+    "tailwindcss": "^3.1.8",
     "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.7"
   }
 }

@@ -28,9 +28,9 @@ export class SignUpController {
     }
 
     try {
-      await this.createUser.execute({ name, email, password });
+      await this.createUser.execute({ name, email, password, admin: false });
       const token = await this.signIn.execute({ email, password });
-      return res.status(200).json(ok({ token }));
+      return res.status(200).json(ok({ ...token }));
     } catch (error) {
       return res.status(409).json(conflict(new UserAlreadyCreatedError()));
     }

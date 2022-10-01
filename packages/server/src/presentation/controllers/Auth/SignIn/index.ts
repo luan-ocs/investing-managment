@@ -31,9 +31,11 @@ export class SignInController {
 
     try {
       const token = await this.signIn.execute({ email, password });
-      return res.status(200).json(ok({ token }));
+      return res.status(200).json(ok({ ...token }));
     } catch (error) {
-      return res.status(402).json(unauthorized(new UnauthorizedError()));
+      if (error instanceof Error) {
+        return res.status(403).json(unauthorized(new UnauthorizedError(error)));
+      } else res.status(500).json({ message: 'unknow error' });
     }
   }
 }
