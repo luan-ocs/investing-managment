@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 // import { Container } from './styles';
 
 type HeaderProps = {
-  navigationOptions: string[];
+  navigationOptions: { path: string; name: string }[];
 };
 const Header: React.FC<HeaderProps> = ({ navigationOptions }) => {
   const location = useLocation();
@@ -22,8 +22,12 @@ const Header: React.FC<HeaderProps> = ({ navigationOptions }) => {
 
       <div className="flex items-center bg-green-800 p-2 shadow-inner rounded-lg">
         {navigationOptions.map((element) => (
-          <MenuItem key={element} active={currentLocation === element}>
-            {element}
+          <MenuItem
+            key={element.path}
+            path={element.path}
+            active={currentLocation === element.path}
+          >
+            {element.name}
           </MenuItem>
         ))}
       </div>
@@ -34,13 +38,15 @@ const Header: React.FC<HeaderProps> = ({ navigationOptions }) => {
 const MenuItem = ({
   children,
   active,
+  path,
 }: {
+  path: string;
   children: string;
   active: boolean;
 }) => {
   return (
     <Link
-      to={children}
+      to={path}
       className={`p-2 text-lg md:text-md rounded-lg ${
         active && 'bg-green-400'
       }`}

@@ -5,7 +5,26 @@ import Header from '../../components/Header';
 const Main: React.FC = () => {
   return (
     <div>
-      <Header navigationOptions={['Dashboard', 'Ganhos', 'Gastos', 'Perfil']} />
+      <Header
+        navigationOptions={[
+          {
+            path: '',
+            name: 'Dashboard',
+          },
+          {
+            path: 'ganhos',
+            name: 'Ganhos',
+          },
+          {
+            path: 'gastos',
+            name: 'Gastos',
+          },
+          {
+            path: 'perfil',
+            name: 'Perfil',
+          },
+        ]}
+      />
       <Outlet />
     </div>
   );

@@ -45,15 +45,12 @@ export const Login: React.FC = () => {
     const { email, password } = data;
 
     type ResponseType = {
-      statusCode: number;
-      data: {
-        token: string;
-        iat: number;
-        exp: number;
-        id: string;
-        name: string;
-        email: string;
-      };
+      token: string;
+      iat: number;
+      exp: number;
+      id: string;
+      name: string;
+      email: string;
     };
 
     setIsLoading(true);
@@ -66,9 +63,11 @@ export const Login: React.FC = () => {
         },
       );
 
-      const userData = response.data.data;
+      const userData = response.data;
 
-      localStorage.setItem('user', JSON.stringify(response.data.data));
+      console.log(response.data);
+
+      localStorage.setItem('user', JSON.stringify(response.data));
 
       setUser(userData);
     } catch (error) {
